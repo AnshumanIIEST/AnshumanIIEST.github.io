@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Anshuman Vikram — Mechatronics, robotics, biomedical engineering and respiratory systems research portfolio.">
+  <title>Anshuman Vikram | Research Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink:#172332; --muted:#647386; --paper:#f5f7f9; --white:#fff;
+      --line:#e3e8ee; --blue:#176b87; --blue2:#0e526b; --pale:#eaf3f6;
+      --dark:#102432; --gold:#d6a85f; --radius:20px; --shadow:0 14px 40px rgba(21,42,58,.08);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif;line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    .wrap{width:min(1160px,calc(100% - 44px));margin:auto}
+    .nav{position:sticky;top:0;z-index:20;background:rgba(245,247,249,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(227,232,238,.8)}
+    .nav-inner{height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-family:Manrope,sans-serif;font-weight:800;letter-spacing:-.04em;font-size:18px}
+    .brand span{color:var(--blue)}
+    .nav-links{display:flex;align-items:center;gap:24px;color:#506174;font-size:13px;font-weight:600}
+    .nav-links a:hover{color:var(--blue)}
+    .nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:11px 18px;background:var(--blue);color:white;font-weight:700;font-size:13px;border:1px solid var(--blue);transition:.2s}
+    .nav-cta:hover,.btn:hover{background:var(--blue2);transform:translateY(-1px)}
+    .menu-btn{display:none;border:1px solid var(--line);background:white;border-radius:10px;padding:8px 11px;font-size:18px}
+    .hero{background:var(--dark);color:white;position:relative;overflow:hidden}
+    .hero:before{content:"";position:absolute;width:620px;height:620px;border:1px solid rgba(255,255,255,.09);border-radius:50%;right:-130px;top:-300px;box-shadow:0 0 0 55px rgba(255,255,255,.025),0 0 0 110px rgba(255,255,255,.02)}
+    .hero-grid{position:relative;display:grid;grid-template-columns:1.12fr .88fr;gap:58px;align-items:center;padding:86px 0 92px}
+    .eyebrow{font-size:11px;letter-spacing:.19em;text-transform:uppercase;color:#8fc3d2;font-weight:700}
+    h1,h2,h3{font-family:Manrope,sans-serif;line-height:1.15;letter-spacing:-.04em}
+    h1{font-size:clamp(42px,6vw,70px);margin:18px 0 18px;font-weight:800}
+    .hero h1 span{color:#8fc3d2}
+    .hero-lead{font-size:17px;line-height:1.8;color:#c4d1d9;max-width:620px}
+    .hero-tags{display:flex;flex-wrap:wrap;gap:9px;margin:26px 0 30px}
+    .tag{border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:7px 12px;font-size:11px;color:#dce7ec}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-light{background:transparent;border-color:rgba(255,255,255,.35);color:white}
+    .btn-light:hover{background:rgba(255,255,255,.1)}
+    .hero-photo{position:relative}
+    .hero-photo img{width:100%;height:420px;object-fit:cover;border-radius:26px;opacity:.88}
+    .photo-note{position:absolute;bottom:18px;left:18px;background:rgba(16,36,50,.88);backdrop-filter:blur(8px);padding:13px 16px;border-radius:14px;font-size:12px;color:#e5edf1}
+    .photo-note strong{display:block;color:white;font-size:13px}
+    section{padding:86px 0}
+    .section-head{max-width:720px;margin-bottom:34px}
+    .kicker{color:var(--blue);font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+    h2{font-size:clamp(30px,4vw,43px);margin:10px 0 14px}
+    .section-intro{color:var(--muted);font-size:15px;max-width:700px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start}
+    .about-copy p{color:var(--muted);margin:0 0 16px}
+    .facts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .fact{background:white;border:1px solid var(--line);border-radius:15px;padding:18px}
+    .fact strong{display:block;font-family:Manrope;font-size:16px;margin-bottom:4px}
+    .fact span{font-size:12px;color:var(--muted)}
+    .systems{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .system-card{background:white;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 5px 20px rgba(21,42,58,.03);transition:.22s}
+    .system-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .system-card img{height:190px;width:100%;object-fit:cover}
+    .system-content{padding:21px}
+    .system-content h3{font-size:19px;margin:0 0 8px}
+    .system-content p{font-size:13px;color:var(--muted);margin:0 0 13px}
+    .skill-list{display:flex;flex-wrap:wrap;gap:7px}
+    .skill{background:var(--pale);color:var(--blue2);font-size:10px;font-weight:700;border-radius:999px;padding:5px 9px}
+    .research{background:#edf2f5}
+    .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .project{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:25px;display:flex;gap:17px}
+    .project-icon{flex:0 0 42px;width:42px;height:42px;border-radius:13px;background:var(--pale);display:grid;place-items:center;color:var(--blue);font-size:20px}
+    .project h3{font-size:18px;margin:0 0 8px}
+    .project p{font-size:13px;color:var(--muted);margin:0 0 12px}
+    .project small{font-size:10px;color:var(--blue);font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+    .timeline{border-left:2px solid #d6e3e9;margin-left:8px;padding-left:26px;display:grid;gap:25px}
+    .timeline-item{position:relative}
+    .timeline-item:before{content:"";position:absolute;left:-34px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--blue);border:4px solid var(--pale)}
+    .timeline-item h3{font-size:17px;margin:0 0 5px}
+    .timeline-item p{color:var(--muted);font-size:13px;margin:0}
+    .education-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .education{background:white;border:1px solid var(--line);padding:22px;border-radius:16px}
+    .education .year{font-size:11px;color:var(--blue);font-weight:800;letter-spacing:.12em}
+    .education h3{font-size:18px;margin:8px 0 5px}
+    .education p{font-size:13px;color:var(--muted);margin:0}
+    .tools{display:flex;flex-wrap:wrap;gap:10px}
+    .tool{background:white;border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:12px;font-weight:700;color:#45576a}
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .gallery-item{position:relative;border-radius:16px;overflow:hidden;background:#dfe7eb;min-height:190px}
+    .gallery-item img{width:100%;height:230px;object-fit:cover;transition:.4s}
+    .gallery-item:hover img{transform:scale(1.04)}
+    .gallery-label{position:absolute;inset:auto 0 0;padding:35px 16px 14px;background:linear-gradient(transparent,rgba(10,25,35,.8));color:white;font-size:12px;font-weight:700}
+    .contact{background:var(--dark);color:white}
+    .contact .section-intro{color:#bdcbd3}
+    .contact-row{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+    .contact-links{display:flex;gap:10px;flex-wrap:wrap}
+    .contact-links a{border:1px solid rgba(255,255,255,.25);padding:10px 15px;border-radius:999px;font-size:12px;color:#e4edf1}
+    .contact-links a:hover{background:rgba(255,255,255,.1)}
+    footer{background:#0b1c27;color:#9aabb5;padding:22px 0;font-size:11px}
+    .footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    @media(max-width:850px){
+      .nav-links{display:none;position:absolute;top:74px;left:0;right:0;background:var(--paper);padding:20px 24px;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}
+      .nav-links.open{display:flex}.menu-btn{display:block}.nav-cta{display:none}
+      .hero-grid{grid-template-columns:1fr;padding:65px 0}.hero-photo{max-width:580px}
+      .about-grid{grid-template-columns:1fr;gap:28px}.systems{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:600px){
+      .wrap{width:min(100% - 30px,1160px)}section{padding:64px 0}
+      .systems,.project-grid,.education-grid,.gallery-grid{grid-template-columns:1fr}
+      .hero-photo img{height:290px}.facts{gap:8px}.fact{padding:14px}
+      .project{padding:19px}.gallery-item img{height:220px}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#home">AV<span>.</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">Profile</a><a href="#systems">Engineering</a><a href="#research">Research</a>
+        <a href="#experience">Experience</a><a href="#education">Education</a><a href="#gallery">Gallery</a>
+      </div>
+      <a class="nav-cta" href="AnshumanVikram_CV.pdf" download>Download CV</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Academic · Research · Engineering</div>
+        <h1>Anshuman<br><span>Vikram</span></h1>
+        <p class="hero-lead">Mechatronics researcher working across multidisciplinary engineering, robotics, intelligent systems and respiratory-support technologies.</p>
+        <div class="hero-tags">
+          <span class="tag">Mechatronics</span><span class="tag">Robotics & Automation</span>
+          <span class="tag">Biomedical Engineering</span><span class="tag">Respiratory Systems</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn" href="#research">Explore research</a>
+          <a class="btn btn-light" href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <!-- Replace this stock image with your own portrait or laboratory photograph. -->
+        <img src="images/main.jpg" alt="Working with an industrial mechatronics and pneumatic training setup">
+        <div class="photo-note"><strong>Engineering across disciplines</strong>From physical systems to intelligent control</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">01 / Profile</div><h2>Research profile</h2>
+          <p class="section-intro">A multidisciplinary engineering background combining electronics, mechanics, control, robotics and computational methods.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>Anshuman Vikram is a mechatronics researcher at the Indian Institute of Engineering Science and Technology (IIEST), Shibpur. His academic background includes a B.Tech in Electronics and Communication Engineering and an M.Tech in Mechatronics Engineering.</p>
+            <p>His interests span the design, integration and analysis of engineering systems, including electronic instrumentation, mechanical assemblies, electrical drives, pneumatic and hydraulic systems, robotics, embedded platforms and intelligent control.</p>
+            <p>Current research interests include respiratory mechanics, physiological modelling, parameter estimation, machine learning and mechanical ventilator systems.</p>
+          </div>
+          <div class="facts">
+            <div class="fact"><strong>Mechatronics</strong><span>Academic and research background</span></div>
+            <div class="fact"><strong>IIEST Shibpur</strong><span>Institutional affiliation</span></div>
+            <div class="fact"><strong>Robotics</strong><span>Autonomous systems and control</span></div>
+            <div class="fact"><strong>Biomedical</strong><span>Respiratory modelling and devices</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="systems" style="background:#fff">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">02 / Practical engineering</div><h2>Multidisciplinary systems experience</h2>
+          <p class="section-intro">Photographs from laboratory work with robotics, biomedical instrumentation, PLC-based automation, sensors and electro-pneumatic systems.</p>
+        </div>
+        <div class="systems">
+          <article class="system-card">
+            <img src="images/smart-health-iot-lab.jpg" alt="Smart Health IoT Lab biomedical signal acquisition setup">
+            <div class="system-content"><h3>Smart Health IoT & electronics</h3><p>Measurement and acquisition of ECG, EOG, PCG, body temperature (BT), SpO₂, NIBP, bio-impedance, EEG, EMG, HHI and respiration-rate signals.</p><div class="skill-list"><span class="skill">Sensors</span><span class="skill">Circuits</span><span class="skill">Embedded systems</span></div></div>
+          </article>
+          <article class="system-card">
+            <img src="images/kuka-robot.jpg" alt="KUKA industrial robotic arm in the laboratory">
+            <div class="system-content"><h3>Mechanical systems</h3><p>Mechanical assemblies, mechanisms, motion transmission and actuator-based systems.</p><div class="skill-list"><span class="skill">Mechanisms</span><span class="skill">Actuation</span><span class="skill">Assembly</span></div></div>
+          </article>
+          <article class="system-card">
+            <img src="images/siemens-s7-300-plc-training-kit.jpg" alt="Siemens S7-300 PLC training kit">
+            <div class="system-content"><h3>Electrical systems</h3><p>Electric motors, motor drives, electrical control and electromechanical integration.</p><div class="skill-list"><span class="skill">Motors</span><span class="skill">Drives</span><span class="skill">Control</span></div></div>
+          </article>
+          <article class="system-card">
+            <img src="images/electro-pneumatic-system.jpg" alt="Electro-pneumatic training and automation setup">
+            <div class="system-content"><h3>Pneumatic systems</h3><p>Compressed-air circuits, pneumatic cylinders, directional valves and pressure regulation.</p><div class="skill-list"><span class="skill">Cylinders</span><span class="skill">Valves</span><span class="skill">Air circuits</span></div></div>
+          </article>
+          <article class="system-card">
+            <img src="https://images.unsplash.com/photo-1581092335878-2d9ff86ca2bf?auto=format&fit=crop&w=900&q=85" alt="Illustrative hydraulic machinery photograph; replace with a laboratory photograph">
+            <div class="system-content"><h3>Hydraulic systems</h3><p>Practical exposure to fluid-power systems, hydraulic actuation and associated control components. Photograph is illustrative until a lab image is added.</p><div class="skill-list"><span class="skill">Fluid power</span><span class="skill">Actuators</span><span class="skill">Valves</span></div></div>
+          </article>
+          <article class="system-card">
+            <img src="images/analog-sensor-trainer.jpg" alt="Analog sensor trainer kit">
+            <div class="system-content"><h3>Sensors & instrumentation</h3><p>Hands-on exposure to analog sensor trainers, including distance, displacement, pressure and temperature measurement interfaces.</p><div class="skill-list"><span class="skill">Sensors</span><span class="skill">Transducers</span><span class="skill">Signal interfaces</span></div></div>
+          </article>
+          <article class="system-card">
+            <img src="images/industrial-automation-line.jpg" alt="Industrial automation training model">
+            <div class="system-content"><h3>Integrated mechatronics</h3><p>Combining mechanical, electrical, electronic and fluid-power subsystems for automated operation.</p><div class="skill-list"><span class="skill">Integration</span><span class="skill">Automation</span><span class="skill">Troubleshooting</span></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="research" id="research">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">03 / Research</div><h2>Selected research directions</h2>
+          <p class="section-intro">Research themes connecting engineering fundamentals, computational modelling and practical respiratory-support systems.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project"><div class="project-icon">⌁</div><div><small>Respiratory engineering</small><h3>Respiratory mechanics & lung modelling</h3><p>Modelling respiratory pressure, flow and volume dynamics, with an emphasis on estimating resistance and elastance.</p></div></article>
+          <article class="project"><div class="project-icon">◈</div><div><small>Machine learning</small><h3>Excitation-Aware Parameter Estimation</h3><p>Physics-informed learning methods for estimating respiratory parameters while accounting for signal excitation and identifiability.</p></div></article>
+          <article class="project"><div class="project-icon">⌁</div><div><small>Biomedical systems</small><h3>Mechanical ventilator development</h3><p>Research on ventilator modelling, control strategies, pneumatic actuation and respiratory-support system performance.</p></div></article>
+          <article class="project"><div class="project-icon">◎</div><div><small>Signal quality</small><h3>BreathGuard</h3><p>Predicting breath-detection failures in low-cost respiratory flow sensing using signal-quality indicators and risk–coverage evaluation.</p></div></article>
+          <article class="project"><div class="project-icon">✦</div><div><small>Robotics</small><h3>Autonomous drone navigation</h3><p>Thesis project involving camera-based site recognition, ROS, Gazebo, object detection and neuroevolution methods.</p></div></article>
+          <article class="project"><div class="project-icon">↗</div><div><small>Control systems</small><h3>Embedded motor control</h3><p>DC motor speed and direction control using Arduino, PWM generation, LabVIEW and an L293D motor driver.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">04 / Experience</div><h2>Academic & project experience</h2></div>
+        <div class="timeline">
+          <div class="timeline-item"><h3>Research in Mechatronics — IIEST Shibpur</h3><p>Research interests include respiratory mechanics, physiological modelling, intelligent estimation, ventilator systems and multidisciplinary engineering.</p></div>
+          <div class="timeline-item"><h3>Thesis: Autonomous drone navigation</h3><p>Camera-based site recognition using ROS, QGroundControl, Gazebo, YOLO-based object detection and NEAT.</p></div>
+          <div class="timeline-item"><h3>Course project: DC motor speed and direction control</h3><p>PWM generation using Arduino UNO and LabVIEW, with an L293D motor-driver IC.</p></div>
+          <div class="timeline-item"><h3>Earlier engineering projects</h3><p>Automatic visitor counter, traffic-light controller and embedded-system-based line-follower robot.</p></div>
+          <div class="timeline-item"><h3>Teaching experience</h3><p>Physics and Electronics teaching experience at ICL Group of Colleges, Haryana.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" style="background:#fff">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">05 / Education</div><h2>Academic background</h2></div>
+        <div class="education-grid">
+          <article class="education"><div class="year">2019 — 2021</div><h3>M.Tech, Mechatronics Engineering</h3><p>Indian Institute of Engineering Science and Technology (IIEST), Shibpur<br><strong>CGPA: 9.01</strong></p></article>
+          <article class="education"><div class="year">2010 — 2014</div><h3>B.Tech, Electronics & Communication Engineering</h3><p>ICL Institute of Engineering & Technology, affiliated with Kurukshetra University</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="expertise">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">06 / Technical toolkit</div><h2>Tools & technologies</h2><p class="section-intro">A selection of tools and technical areas from academic, project and research work.</p></div>
+        <div class="tools">
+          <span class="tool">Python</span><span class="tool">MATLAB</span><span class="tool">Simulink</span><span class="tool">PyTorch</span>
+          <span class="tool">C / C++</span><span class="tool">Arduino</span><span class="tool">LabVIEW</span><span class="tool">ROS</span>
+          <span class="tool">Gazebo</span><span class="tool">YOLO</span><span class="tool">Embedded systems</span><span class="tool">Sensors & actuators</span>
+          <span class="tool">Pneumatics</span><span class="tool">Hydraulics</span><span class="tool">Control systems</span><span class="tool">LaTeX</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" style="background:#fff">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">07 / Laboratory gallery</div><h2>Hands-on engineering</h2><p class="section-intro">Selected photographs from laboratory activities and equipment exposure, including biomedical signal acquisition, robotic manipulators, PLC trainers and industrial automation models.</p></div>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img src="images/smart-health-iot-lab.jpg" alt="Smart Health IoT Lab"><div class="gallery-label">Smart Health IoT Lab · Biomedical signals</div></div>
+          <div class="gallery-item"><img src="images/kuka-robot.jpg" alt="KUKA industrial robot"><div class="gallery-label">KUKA industrial robotic arm</div></div>
+          <div class="gallery-item"><img src="images/mico-robot.jpg" alt="MICO robotic arm"><div class="gallery-label">MICO robotic manipulator</div></div>
+          <div class="gallery-item"><img src="images/main.jpg" alt="NAO humanoid robot in the robotics laboratory"><div class="gallery-label">NAO humanoid robot · Robotics workstation</div></div>
+          <div class="gallery-item"><img src="images/electro-pneumatic-system.jpg" alt="Electro-pneumatic training system"><div class="gallery-label">Electro-pneumatic systems</div></div>
+          <div class="gallery-item"><img src="images/industrial-automation-line.jpg" alt="Industrial automation model"><div class="gallery-label">Industrial automation model</div></div>
+          <div class="gallery-item"><img src="images/siemens-s7-300-plc-training-kit.jpg" alt="Siemens S7-300 PLC training kit"><div class="gallery-label">Siemens S7-300 PLC training kit</div></div>
+          <div class="gallery-item"><img src="images/plc-distance-displacement-sensor-kit.jpg" alt="PLC and distance displacement sensor trainer"><div class="gallery-label">PLC & distance/displacement sensing</div></div>
+          <div class="gallery-item"><img src="images/analog-sensor-trainer.jpg" alt="Analog sensor trainer"><div class="gallery-label">Analog sensor trainer</div></div>
+          <div class="gallery-item"><img src="images/plc-control-cabinet.jpg" alt="PLC control cabinet"><div class="gallery-label">PLC control cabinet & wiring</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="contact-row">
+          <div><div class="kicker">08 / Contact</div><h2>Research & collaboration</h2><p class="section-intro">For academic discussions, research collaboration and engineering projects.</p></div>
+          <div class="contact-links">
+            <a href="mailto:anshuman.iiest@gmail.com" aria-label="Email Anshuman Vikram at Gmail">Personal Email</a>
+            <a href="mailto:2021mcp001.anshuman@students.iiests.ac.in" aria-label="Email Anshuman Vikram at IIEST">Institutional Email</a>
+            <a href="https://www.linkedin.com/in/anshuman-vikram/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/AnshumanIIEST" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://scholar.google.com/citations?hl=en&authuser=2&user=crK9NsoAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+            <a href="https://orcid.org/0009-0009-9758-3655" target="_blank" rel="noopener noreferrer">ORCID</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap footer-inner"><span>© <span id="year"></span> Anshuman Vikram</span><span>Personal academic & research portfolio</span></div></footer>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('open')));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
